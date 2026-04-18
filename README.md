@@ -1,4 +1,4 @@
-# SFRP-staff-guide
+# FSRP-staff-guide
 
 Official Staff Standard Operating Procedures Guide.
 
