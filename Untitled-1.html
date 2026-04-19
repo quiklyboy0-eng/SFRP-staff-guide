@@ -1,0 +1,510 @@
+ staff-sop.html.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Los Angeles Roleplay - Official Staff Standard Operating Procedures (SOP)">
+<meta name="author" content="Los Angeles Roleplay Staff Team">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f172a">
+<meta property="og:site_name" content="LA Roleplay">
+<meta property="og:title" content="LA Roleplay Official Staff SOP">
+<meta property="og:description" content="Clear, professional staff procedures for Los Angeles Roleplay.">
+<meta property="og:type" content="website">
+<title>LA Roleplay • Official Staff SOP</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2300b4d8'/%3E%3Ctext x='50' y='58' font-size='50' text-anchor='middle' fill='%23fff' font-family='Arial,Helvetica,sans-serif'%3EL%3C/text%3E%3C/svg%3E">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+
+:root {
+  --tw-color-primary: #00b4d8;
+}
+
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.header-font {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.sidebar a.active {
+  background-color: #e0f2fe;
+  color: #00b4d8;
+  border-left: 4px solid #00b4d8;
+}
+
+.card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.section-header {
+  position: relative;
+}
+
+.section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, #00b4d8, #0077b6);
+  border-radius: 9999px;
+}
+
+.mobile-menu {
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body class="bg-slate-950 text-slate-200">
+
+<header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
+  <div class="max-w-screen-2xl mx-auto px-6 py-5 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl shadow-inner">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <div>
+        <h1 class="header-font text-3xl tracking-tighter text-white">LA ROLEPLAY</h1>
+        <p class="text-xs text-cyan-400 font-medium -mt-1 tracking-[1px]">STAFF SOP v2.1 • 2026</p>
+      </div>
+    </div>
+
+    <nav aria-label="Primary site navigation" class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#core" class="hover:text-cyan-400 flex items-center gap-1">
+        <i class="fa-solid fa-house"></i>
+        <span>Core</span>
+      </a>
+      <a href="#punishments" class="hover:text-cyan-400">Moderation</a>
+      <a href="#uniform" class="hover:text-cyan-400">Operations</a>
+      <a href="https://discord.gg/larp" target="_blank" class="flex items-center gap-1 bg-cyan-500 hover:bg-cyan-400 text-white px-5 py-2 rounded-2xl text-sm font-semibold">
+        <i class="fa-brands fa-discord"></i>
+        JOIN DISCORD
+      </a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <div class="relative hidden sm:block">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search SOP..."
+          onkeyup="handleSearch(event)"
+          class="bg-slate-800 text-white placeholder:text-slate-400 border border-slate-700 focus:border-cyan-400 w-72 pl-10 pr-4 py-3 rounded-3xl text-sm focus:outline-none">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+      </div>
+
+      <button onclick="window.print()"
+        class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 px-4 py-3 rounded-3xl text-sm font-medium">
+        <i class="fa-solid fa-print"></i>
+        <span class="hidden md:inline">Print / Save PDF</span>
+      </button>
+
+      <button onclick="toggleMobileMenu()" aria-controls="mobileMenu" aria-expanded="false"
+        class="md:hidden w-11 h-11 flex items-center justify-center bg-slate-800 hover:bg-slate-700 rounded-2xl text-2xl">
+        <i id="hamburgerIcon" class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-t border-slate-700 px-6 py-4 mobile-menu">
+    <div class="flex flex-col gap-2">
+      <a href="#core" onclick="toggleMobileMenu()" class="py-3 px-4 hover:bg-slate-800 rounded-2xl flex items-center gap-3 text-lg">
+        <i class="fa-solid fa-shield-halved w-6"></i> Core Expectations
+      </a>
+      <a href="#punishments" onclick="toggleMobileMenu()" class="py-3 px-4 hover:bg-slate-800 rounded-2xl flex items-center gap-3 text-lg">
+        <i class="fa-solid fa-gavel w-6"></i> Moderation
+      </a>
+      <a href="#uniform" onclick="toggleMobileMenu()" class="py-3 px-4 hover:bg-slate-800 rounded-2xl flex items-center gap-3 text-lg">
+        <i class="fa-solid fa-gear w-6"></i> Operations
+      </a>
+      <div class="my-2 border-t border-slate-700"></div>
+      <a href="https://discord.gg/larp" target="_blank" onclick="toggleMobileMenu()"
+        class="py-3 px-4 bg-cyan-500 text-white rounded-2xl flex items-center justify-center gap-2 text-lg font-semibold">
+        <i class="fa-brands fa-discord"></i> Join Staff Discord
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row">
+  <aside class="lg:w-72 bg-white text-slate-900 lg:min-h-screen lg:sticky lg:top-[73px] border-r border-slate-200 shadow-sm overflow-y-auto">
+    <div class="px-6 py-8">
+      <h3 class="uppercase text-xs font-semibold tracking-widest text-slate-500 mb-4 flex items-center gap-2">
+        <span class="flex-1 h-px bg-slate-300"></span>
+        CORE
+        <span class="flex-1 h-px bg-slate-300"></span>
+      </h3>
+      <a href="#core" class="sidebar-link flex items-center gap-3 px-4 py-4 rounded-3xl hover:bg-cyan-50 text-slate-700 hover:text-cyan-600 text-[15px] font-medium">
+        <i class="fa-solid fa-shield-halved text-cyan-500"></i>
+        Core Expectations
+      </a>
+      <a href="#conduct" class="sidebar-link flex items-center gap-3 px-4 py-4 rounded-3xl hover:bg-cyan-50 text-slate-700 hover:text-cyan-600 text-[15px] font-medium">
+        <i class="fa-solid fa-user-shield text-cyan-500"></i>
+        Staff Conduct
+      </a>
+      <a href="#infractions" class="sidebar-link flex items-center gap-3 px-4 py-4 rounded-3xl hover:bg-cyan-50 text-slate-700 hover:text-cyan-600 text-[15px] font-medium">
+        <i class="fa-solid fa-triangle-exclamation text-cyan-500"></i>
+        Infractions System
+      </a>
+
+      <h3 class="uppercase text-xs font-semibold tracking-widest text-slate-500 mb-4 mt-10 flex items-center gap-2">
+        <span class="flex-1 h-px bg-slate-300"></span>
+        MODERATION
+        <span class="flex-1 h-px bg-slate-300"></span>
+      </h3>
+      <a href="#punishments" class="sidebar-link flex items-center gap-3 px-4 py-4 rounded-3xl hover:bg-cyan-50 text-slate-700 hover:text-cyan-600 text-[15px] font-medium">
+        <i class="fa-solid fa-gavel text-cyan-500"></i>
+        Punishment Protocol
+      </a>
+      <a href="#communication" class="sidebar-link flex items-center gap-3 px-4 py-4 rounded-3xl hover:bg-cyan-50 text-slate-700 hover:text-cyan-600 text-[15px] font-medium">
+        <i class="fa-solid fa-comments text-cyan-500"></i>
+        Communication
+      </a>
+      <a href="#discord" class="sidebar-link flex items-center gap-3 px-4 py-4 rounded-3xl hover:bg-cyan-50 text-slate-700 hover:text-cyan-600 text-[15px] font-medium">
+        <i class="fa-brands fa-discord text-cyan-500"></i>
+        Discord Checks
+      </a>
+      <a href="#commands" class="sidebar-link flex items-center gap-3 px-4 py-4 rounded-3xl hover:bg-cyan-50 text-slate-700 hover:text-cyan-600 text-[15px] font-medium">
+        <i class="fa-solid fa-terminal text-cyan-500"></i>
+        Command Usage
+      </a>
+
+      <h3 class="uppercase text-xs font-semibold tracking-widest text-slate-500 mb-4 mt-10 flex items-center gap-2">
+        <span class="flex-1 h-px bg-slate-300"></span>
+        OPERATIONS
+        <span class="flex-1 h-px bg-slate-300"></span>
+      </h3>
+      <a href="#uniform" class="sidebar-link flex items-center gap-3 px-4 py-4 rounded-3xl hover:bg-cyan-50 text-slate-700 hover:text-cyan-600 text-[15px] font-medium">
+        <i class="fa-solid fa-shirt text-cyan-500"></i>
+        Uniform Guidelines
+      </a>
+      <a href="#melonly" class="sidebar-link flex items-center gap-3 px-4 py-4 rounded-3xl hover:bg-cyan-50 text-slate-700 hover:text-cyan-600 text-[15px] font-medium">
+        <i class="fa-solid fa-clock text-cyan-500"></i>
+        Melonly System
+      </a>
+      <a href="#search" class="sidebar-link flex items-center gap-3 px-4 py-4 rounded-3xl hover:bg-cyan-50 text-slate-700 hover:text-cyan-600 text-[15px] font-medium">
+        <i class="fa-solid fa-search text-cyan-500"></i>
+        Search Policy
+      </a>
+      <a href="#loa" class="sidebar-link flex items-center gap-3 px-4 py-4 rounded-3xl hover:bg-cyan-50 text-slate-700 hover:text-cyan-600 text-[15px] font-medium">
+        <i class="fa-solid fa-plane-departure text-cyan-500"></i>
+        Leave of Absence
+      </a>
+      <a href="#promotion" class="sidebar-link flex items-center gap-3 px-4 py-4 rounded-3xl hover:bg-cyan-50 text-slate-700 hover:text-cyan-600 text-[15px] font-medium">
+        <i class="fa-solid fa-arrow-trend-up text-cyan-500"></i>
+        Promotions
+      </a>
+    </div>
+
+    <div class="px-6 py-6 border-t mt-auto text-xs text-slate-400">
+      Last updated: April 18, 2026<br>
+      <span class="text-cyan-500 font-medium">Confidential • Los Angeles Roleplay Staff Only</span>
+    </div>
+  </aside>
+
+  <main class="flex-1 p-6 lg:p-10 bg-slate-100 text-slate-900 min-h-screen">
+    <div class="mb-12 bg-gradient-to-r from-slate-900 to-cyan-900 text-white rounded-3xl p-8 md:p-12 shadow-xl">
+      <div class="max-w-2xl">
+        <span class="px-4 py-1 bg-white/20 text-white text-xs font-semibold rounded-3xl backdrop-blur">OFFICIAL DOCUMENT</span>
+        <h2 class="text-5xl md:text-6xl header-font tracking-tighter leading-none mt-4 mb-4">Staff Standard Operating Procedures</h2>
+        <p class="text-xl text-cyan-100">Clear, professional, and consistent rules that keep Los Angeles Roleplay running smoothly. Every staff member is expected to know and follow these guidelines.</p>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-8 text-sm">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-check-circle text-cyan-400"></i>
+            <span>Zero tolerance for abuse</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-check-circle text-cyan-400"></i>
+            <span>Always documented</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-check-circle text-cyan-400"></i>
+            <span>Fair & consistent enforcement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="core" class="section mb-16 scroll-mt-20">
+      <div class="section-header">
+        <h2 class="text-3xl font-semibold mb-2">Core Expectations</h2>
+      </div>
+      <p class="text-slate-600 mb-6 max-w-prose">As a member of LA Roleplay staff, you are a representative of the entire community. These core expectations are non-negotiable and form the foundation of every decision you make.</p>
+      <div class="card bg-white rounded-3xl p-8 shadow">
+        <ul class="space-y-6">
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Act professionally at all times</strong><br>You represent the server 24/7. Maintain composure, use respectful language, and never let personal emotions affect your duties — even during high-stress situations or player complaints.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>No bias or favoritism</strong><br>Treat every player equally regardless of friendship, in-game status, donations, or history. Decisions must be based solely on facts and rules.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Enforce rules consistently</strong><br>The same rule violation must result in the same outcome for every player. Inconsistency damages trust in the staff team.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>All actions must be justified</strong><br>Every punishment, warning, or decision must be backed by clear evidence and logged with the exact rule broken and reasoning provided.</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="conduct" class="section mb-16 scroll-mt-20">
+      <div class="section-header"><h2 class="text-3xl font-semibold mb-2">Staff Conduct</h2></div>
+      <p class="text-slate-600 mb-6 max-w-prose">How you behave while on duty directly affects the player experience and the reputation of the entire staff team.</p>
+      <div class="card bg-white rounded-3xl p-8 shadow">
+        <ul class="space-y-6">
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Remain calm and respectful</strong><br>De-escalate situations. Never raise your voice or use aggressive language.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>No arguments with players</strong><br>If a player becomes hostile, mute them politely and direct them to a staff ticket or higher-up. Never engage in back-and-forth debates.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>No trolling or retaliation</strong><br>Zero tolerance. Any form of staff trolling, power-tripping, or retaliatory actions will result in immediate removal.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Handle all reports objectively</strong><br>Base every decision on evidence and server rules — never personal feelings or past interactions.</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="infractions" class="section mb-16 scroll-mt-20">
+      <div class="section-header"><h2 class="text-3xl font-semibold mb-2">Infractions System</h2></div>
+      <div class="card bg-white rounded-3xl p-8 shadow">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="font-semibold text-lg mb-3 text-amber-600">Progressive Discipline</h4>
+            <table class="w-full text-sm">
+              <tr class="border-b"><td class="py-3 font-medium">Tier 1</td><td>Verbal Warning</td><td class="text-slate-500">Minor policy slip</td></tr>
+              <tr class="border-b"><td class="py-3 font-medium">Tier 2</td><td>Written Warning</td><td class="text-slate-500">Repeated minor issues</td></tr>
+              <tr class="border-b"><td class="py-3 font-medium">Tier 3</td><td>7-Day Suspension</td><td class="text-slate-500">Moderate violations</td></tr>
+              <tr><td class="py-3 font-medium">Tier 4</td><td>Permanent Removal</td><td class="text-slate-500">Severe or repeated major violations</td></tr>
+            </table>
+          </div>
+          <div>
+            <p class="text-slate-600 mb-4"><strong>Zero Tolerance Offenses</strong> (Immediate Tier 4)</p>
+            <ul class="list-disc pl-5 space-y-2 text-sm">
+              <li>Abuse of staff powers</li>
+              <li>False or malicious punishments</li>
+              <li>Leaking internal information</li>
+              <li>Discrimination or harassment</li>
+              <li>Sharing staff-only resources</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="punishments" class="section mb-16 scroll-mt-20">
+      <div class="section-header"><h2 class="text-3xl font-semibold mb-2">Punishment Protocol</h2></div>
+      <div class="card bg-white rounded-3xl p-8 shadow space-y-6">
+        <div class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Always confirm violation with evidence</strong><br>Screenshots, logs, or witness statements required before any action.</div></div>
+        <div class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Explain the rule + reason clearly</strong><br>Tell the player exactly which rule was broken and why the punishment fits the severity.</div></div>
+        <div class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Match punishment to severity</strong><br>Use the infraction tiers above. Never punish harder than necessary.</div></div>
+        <div class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Log immediately after action</strong><br>Use the staff panel or #staff-logs channel within 5 minutes. Include player name, rule, evidence link, and your staff ID.</div></div>
+      </div>
+    </section>
+
+    <section id="communication" class="section mb-16 scroll-mt-20">
+      <div class="section-header"><h2 class="text-3xl font-semibold mb-2">Communication</h2></div>
+      <div class="card bg-white rounded-3xl p-8 shadow">
+        <ul class="space-y-6">
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Use clear and professional language</strong><br>Short, polite, and easy to understand — no slang or abbreviations in official interactions.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>No sarcasm or trolling</strong><br>Ever. Players should never feel mocked by staff.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Keep staff chats relevant</strong><br>Off-topic conversation belongs in #staff-lounge.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>No leaking internal info</strong><br>This includes staff discussions, upcoming updates, or private Discord channels.</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="discord" class="section mb-16 scroll-mt-20">
+      <div class="section-header"><h2 class="text-3xl font-semibold mb-2">Discord Checks</h2></div>
+      <div class="card bg-white rounded-3xl p-8 shadow space-y-6">
+        <div><strong>Daily quality checks</strong><br>Review staff channels and support requests each shift. Report missing or incorrect logs immediately.</div>
+        <div><strong>Verify roles and permissions</strong><br>Confirm staff members have the correct tags, access, and channels. Remove improper access without delay.</div>
+        <div><strong>Monitor public behavior</strong><br>Staff must be polite and professional in all public Discord areas. Any misconduct is logged and escalated.</div>
+        <div><strong>Report suspicious DMs</strong><br>If a staff member receives a questionable direct message, screenshot it and notify senior leadership.</div>
+      </div>
+    </section>
+
+    <section id="commands" class="section mb-16 scroll-mt-20">
+      <div class="section-header"><h2 class="text-3xl font-semibold mb-2">Command Usage</h2></div>
+      <div class="card bg-white rounded-3xl p-8 shadow">
+        <ul class="space-y-6">
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Use approved commands only</strong><br>Only execute commands listed in staff documentation. Unauthorized command use is prohibited.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Confirm command effects</strong><br>Before applying punishments, verify syntax and expected result. Avoid mistakes by double-checking.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Keep command logs complete</strong><br>Record the command issued, target player, reason, and evidence. This is required for audits.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>No private command testing</strong><br>Do not experiment with commands in public channels or on players unless approved by senior staff.</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="uniform" class="section mb-16 scroll-mt-20">
+      <div class="section-header"><h2 class="text-3xl font-semibold mb-2">Uniform Guidelines</h2></div>
+      <div class="card bg-white rounded-3xl p-8 shadow">
+        <ul class="space-y-6">
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Wear your staff tag</strong><br>Keep the official staff tag visible in-game and on Discord. If the tag is missing, notify leadership immediately.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Maintain a professional avatar</strong><br>Avoid offensive or inappropriate profile images and names while on duty.</div></li>
+          <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-500 mt-1"></i><div><strong>Follow role-specific dress codes</strong><br>Certain events or enforcement shifts may require a specific appearance. Comply with those instructions.</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="melonly" class="section mb-16 scroll-mt-20">
+      <div class="section-header"><h2 class="text-3xl font-semibold mb-2">Melonly System</h2></div>
+      <div class="card bg-white rounded-3xl p-8 shadow">
+        <p class="text-slate-600">Melonly is used when a staff member must remain on-duty and maintain presence in a designated area. This is especially important during major events or high-risk scenarios.</p>
+        <ul class="list-disc pl-5 space-y-2 text-sm">
+          <li>Only go AFK with explicit permission from senior staff.</li>
+          <li>Check in every 10 minutes when melonly is active.</li>
+          <li>Respond immediately to urgent staff requests while melonly is in effect.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="search" class="section mb-16 scroll-mt-20">
+      <div class="section-header"><h2 class="text-3xl font-semibold mb-2">Search Policy</h2></div>
+      <div class="card bg-white rounded-3xl p-8 shadow">
+        <p class="text-slate-600">Searches for player information or logs must be handled carefully and only when authorized.</p>
+        <ul class="list-disc pl-5 space-y-2 text-sm">
+          <li>Do not perform searches for personal reasons.</li>
+          <li>Use official search tools and follow written search procedures.</li>
+          <li>Log every search request, including who requested it and why.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="loa" class="section mb-16 scroll-mt-20">
+      <div class="section-header"><h2 class="text-3xl font-semibold mb-2">Leave of Absence</h2></div>
+      <div class="card bg-white rounded-3xl p-8 shadow">
+        <p class="text-slate-600">If you need time away from staff duty, request a Leave of Absence in advance whenever possible.</p>
+        <ul class="list-disc pl-5 space-y-2 text-sm">
+          <li>Submit your LOA request with expected dates and reason.</li>
+          <li>Keep communication open during extended leaves.</li>
+          <li>Return only after approval from senior staff and confirm your status.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="promotion" class="section mb-16 scroll-mt-20">
+      <div class="section-header"><h2 class="text-3xl font-semibold mb-2">Promotions</h2></div>
+      <div class="card bg-white rounded-3xl p-8 shadow">
+        <p class="text-slate-600">Promotions are earned through consistent performance, leadership, and dependable execution of staff duties.</p>
+        <ul class="list-disc pl-5 space-y-2 text-sm">
+          <li>Maintain accurate logs, positive communication, and strong teamwork.</li>
+          <li>Mentor newer staff and lead by example.</li>
+          <li>Promotion decisions are based on documented performance and senior staff review.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="mt-20 bg-amber-100 border border-amber-300 rounded-3xl p-8 text-center text-amber-800">
+      <i class="fa-solid fa-circle-info text-2xl mb-3"></i>
+      <p class="font-semibold">Questions or need clarification?</p>
+      <p class="text-sm mt-2">Message <strong>@HeadStaff</strong> or post in #staff-support on Discord. Never guess — ask first.</p>
+    </div>
+  </main>
+</div>
+
+<footer class="bg-slate-900 text-slate-300 border-t border-slate-800">
+  <div class="max-w-screen-2xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start justify-between gap-6">
+    <div class="max-w-xl">
+      <h3 class="header-font text-2xl text-white mb-3">LA Roleplay Staff SOP</h3>
+      <p class="text-slate-400 leading-relaxed">This page serves as the official staff standard operating procedures for Los Angeles Roleplay. It is maintained by the head staff team and updated regularly to reflect current policy.</p>
+    </div>
+    <div class="space-y-3 text-sm text-slate-400">
+      <div>
+        <span class="font-semibold text-white">Contact</span><br>
+        <a href="https://discord.gg/larp" class="text-cyan-400 hover:text-cyan-300">Discord / Staff Support</a>
+      </div>
+      <div>
+        <span class="font-semibold text-white">Approved by</span><br>
+        Head Staff Council
+      </div>
+      <div>
+        <span class="font-semibold text-white">Last reviewed</span><br>
+        April 18, 2026
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-slate-800 pt-6 pb-4 text-center text-xs text-slate-500">
+    © 2026 Los Angeles Roleplay. All rights reserved. Confidential staff documentation — not for public redistribution.
+  </div>
+</footer>
+
+<script>
+function setupSidebar() {
+  const links = document.querySelectorAll('.sidebar-link')
+  const sections = document.querySelectorAll('.section')
+
+  window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY || window.pageYOffset
+    let current = ''
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop
+      if (scrollPosition >= sectionTop - 220) {
+        current = section.getAttribute('id')
+      }
+    })
+
+    links.forEach(link => {
+      link.classList.remove('active')
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active')
+      }
+    })
+  })
+}
+
+function handleSearch(e) {
+  const term = e.target.value.toLowerCase().trim()
+  const sections = document.querySelectorAll('.section')
+
+  sections.forEach(section => {
+    const text = section.textContent.toLowerCase()
+    section.style.display = term === '' || text.includes(term) ? 'block' : 'none'
+  })
+}
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu')
+  const icon = document.getElementById('hamburgerIcon')
+  const open = menu.classList.toggle('hidden')
+  icon.classList.toggle('fa-bars', open)
+  icon.classList.toggle('fa-xmark', !open)
+  document.querySelector('[aria-controls="mobileMenu"]').setAttribute('aria-expanded', String(!open))
+}
+
+function addKeyboardShortcuts() {
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault()
+      const search = document.getElementById('searchInput')
+      if (search) search.focus()
+    }
+  })
+}
+
+window.addEventListener('load', () => {
+  setupSidebar()
+  addKeyboardShortcuts()
+  console.log('%c✅ LA Roleplay Staff SOP website loaded successfully!', 'color:#00b4d8; font-weight:600')
+})
+</script>
+</body>
+</html>
+```
